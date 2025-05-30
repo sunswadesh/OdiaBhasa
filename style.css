@@ -130,3 +130,44 @@ footer {
     font-size: 1.5em; /* Make Odia characters larger */
     text-align: center; /* Center Odia characters in their cell */
 }
+
+/* Vocabulary Section Styling */
+#vocabulary {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Light background for the section */
+}
+
+#vocabulary h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#vocabulary table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#vocabulary th, #vocabulary td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+#vocabulary th {
+    background-color: #e7e7e7; /* Light grey background for table headers */
+    color: #333;
+    font-weight: bold;
+}
+
+#vocabulary tr:nth-child(even) {
+    background-color: #f2f2f2; /* Zebra striping for even rows */
+}
+
+#vocabulary tr:hover {
+    background-color: #e9e9e9; /* Highlight row on hover */
+}
