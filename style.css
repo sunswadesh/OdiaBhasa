@@ -192,3 +192,19 @@ footer {
 .example-block em { /* For Roman transliteration */
     color: #555;
 }
+
+/* Styling for images within the greetings table */
+#greetings table td img {
+    max-width: 64px; /* Corresponds to placeholder width */
+    max-height: 64px; /* Corresponds to placeholder height */
+    display: block; /* Helps with centering if margin auto is used */
+    margin: auto; /* Basic centering for block elements */
+    border: 1px solid #eee; /* Light border around the image placeholder */
+    border-radius: 4px; /* Slightly rounded corners */
+}
+
+/* Adjust padding for the image cell if needed */
+#greetings table td:last-child { /* Assuming image is the last cell */
+    text-align: center; /* Center the image if it's smaller than cell */
+    vertical-align: middle; /* Vertically align image in cell */
+}
