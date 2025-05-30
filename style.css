@@ -32,6 +32,9 @@ nav ul li a {
 
 main {
     padding: 20px;
+    /* If footer is fixed, main might need a bottom padding
+       equal to footer height, but individual sections will handle this for now.
+    */
 }
 
 footer {
@@ -208,3 +211,45 @@ footer {
     text-align: center; /* Center the image if it's smaller than cell */
     vertical-align: middle; /* Vertically align image in cell */
 }
+
+/* Tab Navigation Styling */
+
+/* Hide content sections by default */
+.content-section {
+    display: none;
+    /* Add some padding or margin if sections feel too close to nav or footer when displayed */
+    padding-top: 10px;
+    padding-bottom: 60px; /* Add padding to bottom to avoid overlap with fixed footer */
+}
+
+/* Style for the currently active navigation tab link */
+nav ul li a.active-tab {
+    font-weight: bold;
+    /* Example: change background or add an underline */
+    background-color: #555; /* Darker background for active tab */
+    border-radius: 3px;
+    padding: 5px 10px; /* Add some padding to make background visible */
+}
+
+/* Ensure the main content area allows for scrolling if content is long,
+   and doesn't get hidden by the fixed footer.
+   The padding-bottom on .content-section helps with this.
+   We might also need to ensure 'main' itself doesn't have issues.
+   Let's add a general padding to main to prevent content from
+   being too close to the nav bar initially.
+*/
+
+/* Adjust footer if it's overlapping content,
+   though the padding-bottom on .content-section is the primary fix here.
+   The existing footer style is:
+    footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+   This fixed position is why .content-section needs padding-bottom.
+*/
