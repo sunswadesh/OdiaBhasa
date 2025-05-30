@@ -130,3 +130,65 @@ footer {
     font-size: 1.5em; /* Make Odia characters larger */
     text-align: center; /* Center Odia characters in their cell */
 }
+
+/* Grammar Section Styling */
+#grammar-content {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9; /* Light background for the section */
+}
+
+#grammar-content h2 { /* Main section title */
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#grammar-content article { /* For individual grammar topics */
+    margin-bottom: 20px;
+}
+
+#grammar-content h3 { /* Sub-topic title, e.g., "Basic Sentence Structure" */
+    color: #444;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+#grammar-content p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+#grammar-content ul {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+#grammar-content li {
+    margin-bottom: 5px;
+}
+
+/* Styling for the example block */
+.example-block {
+    background-color: #eef7ff; /* A light blue background */
+    border: 1px solid #cce0ff; /* A soft blue border */
+    border-radius: 4px;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.example-block p {
+    margin-bottom: 8px; /* Slightly less margin for paragraphs within example */
+}
+
+.example-block p:last-child {
+    margin-bottom: 0; /* No margin for the last paragraph in example */
+}
+
+.example-block em { /* For Roman transliteration */
+    color: #555;
+}
