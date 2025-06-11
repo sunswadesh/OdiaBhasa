@@ -253,3 +253,124 @@ nav ul li a.active-tab {
     }
    This fixed position is why .content-section needs padding-bottom.
 */
+
+/* Tab Navigation Styling */
+
+/* Hide content sections by default */
+.content-section {
+    display: none;
+    /* Add some padding or margin if sections feel too close to nav or footer when displayed */
+    padding-top: 10px;
+    padding-bottom: 60px; /* Add padding to bottom to avoid overlap with fixed footer */
+}
+
+/* Style for the currently active navigation tab link */
+nav ul li a.active-tab {
+    font-weight: bold;
+    /* Example: change background or add an underline */
+    background-color: #555; /* Darker background for active tab */
+    border-radius: 3px;
+    padding: 5px 10px; /* Add some padding to make background visible */
+}
+
+/* Styling for the Topics List (list of chapters) */
+#topics .topic-list {
+    list-style-type: none; /* Remove default bullets */
+    padding: 0;
+    margin-top: 15px;
+}
+
+#topics .topic-list li {
+    margin-bottom: 10px; /* Space between chapter links */
+}
+
+#topics .topic-list .chapter-link {
+    display: block; /* Make the whole area clickable */
+    padding: 15px;
+    background-color: #e9e9e9; /* Light background for links */
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#topics .topic-list .chapter-link:hover {
+    background-color: #dcdcdc; /* Slightly darker on hover */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Styling for Chapter Content Sections (e.g., #basic-greetings, #basic-introductions) */
+/* Titles within chapters */
+.content-section h2 { /* This will apply to chapter titles like "Chapter: Basic Greetings" */
+    color: #2c3e50; /* A different color for chapter titles for distinction */
+    border-bottom: 2px solid #3498db; /* A blue bottom border */
+    padding-bottom: 10px;
+    margin-top: 0; /* Remove default margin if section already has padding */
+}
+
+.content-section h3 { /* Sub-headings like "Vocabulary / Key Phrases:" */
+    color: #34495e;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #bdc3c7;
+    padding-bottom: 5px;
+}
+
+#basic-greetings table,
+#basic-introductions table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+#basic-greetings th, #basic-greetings td,
+#basic-introductions th, #basic-introductions td {
+    border: 1px solid #ccc;
+    padding: 12px; /* Slightly more padding */
+    text-align: left;
+    vertical-align: top; /* Align content to top of cell */
+}
+
+#basic-greetings th,
+#basic-introductions th {
+    background-color: #f0f0f0; /* Lighter grey for these chapter table headers */
+    color: #333;
+    font-weight: bold;
+}
+
+#basic-greetings tr:nth-child(even),
+#basic-introductions tr:nth-child(even) {
+    background-color: #f9f9f9; /* Lighter zebra striping */
+}
+
+#basic-greetings td img,
+#basic-introductions td img {
+    max-width: 64px;
+    max-height: 64px;
+    display: block;
+    margin: auto;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+#basic-greetings table td:last-child, /* Image cell in greetings */
+#basic-introductions table td:last-child { /* Image cell in new vocab table */
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Conversation snippet styling */
+#basic-introductions h3 ~ p { /* Targets any <p> that is a sibling following an <h3> (our "Sample Conversations" heading) */
+    margin-bottom: 8px;
+    padding: 8px;
+    border-left: 3px solid #3498db;
+    background-color: #f8f9fa;
+    line-height: 1.5;
+}
+
+#basic-introductions h3 ~ p strong { /* Speaker label */
+    color: #2980b9;
+    margin-right: 5px;
+}

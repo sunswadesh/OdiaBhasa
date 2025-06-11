@@ -1,46 +1,59 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const tabLinks = document.querySelectorAll('nav ul li a');
+    const mainNavLinks = document.querySelectorAll('nav ul li a');
+    const chapterLinks = document.querySelectorAll('.topic-list .chapter-link'); // Links within the #topics section
     const contentSections = document.querySelectorAll('.content-section');
-    let defaultSectionId = 'welcome'; // Show 'welcome' section by default
+    let defaultSectionId = 'welcome';
 
-    // Function to show a specific section and update active tab
-    function showSection(targetId) {
-        // Remove '#' from targetId if it exists (it will from href)
-        const sectionId = targetId.startsWith('#') ? targetId.substring(1) : targetId;
-
-        contentSections.forEach(section => {
-            if (section.id === sectionId) {
-                section.style.display = 'block';
-            } else {
-                section.style.display = 'none';
+    function updateMainNavActiveState(currentSectionId) {
+        mainNavLinks.forEach(navLink => {
+            // Determine if this navLink (or its target) is an ancestor or direct match for currentSectionId
+            // For simplicity now, if currentSectionId is 'basic-greetings' or 'basic-introductions',
+            // we know 'topics' is the active main tab.
+            let mainNavLinkTarget = navLink.getAttribute('href').substring(1);
+            if (mainNavLinkTarget === currentSectionId) {
+                navLink.classList.add('active-tab');
+            } else if (mainNavLinkTarget === 'topics' && (currentSectionId === 'basic-greetings' || currentSectionId === 'basic-introductions')) {
+                navLink.classList.add('active-tab');
             }
-        });
-
-        tabLinks.forEach(link => {
-            if (link.getAttribute('href') === '#' + sectionId) {
-                link.classList.add('active-tab');
-            } else {
-                link.classList.remove('active-tab');
+            else {
+                navLink.classList.remove('active-tab');
             }
         });
     }
 
-    // Add click event listeners to tab links
-    tabLinks.forEach(link => {
+    function showSection(targetId) {
+        const sectionId = targetId.startsWith('#') ? targetId.substring(1) : targetId;
+
+        contentSections.forEach(section => {
+            section.style.display = (section.id === sectionId) ? 'block' : 'none';
+        });
+        updateMainNavActiveState(sectionId);
+    }
+
+    // Event listeners for main navigation links
+    mainNavLinks.forEach(link => {
         link.addEventListener('click', (event) => {
-            event.preventDefault(); // Prevent default anchor jump
+            event.preventDefault();
             const targetId = link.getAttribute('href');
             showSection(targetId);
-            // Optionally, update URL hash without jumping:
-            // history.pushState(null, null, targetId);
+            // history.pushState(null, null, targetId); // Optional
         });
     });
 
-    // Show the default section on initial page load
-    // Check if URL hash exists and try to show that section, otherwise show default
+    // Event listeners for chapter links within the #topics section
+    chapterLinks.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            const targetId = link.getAttribute('href'); // e.g., "#basic-introductions"
+            showSection(targetId);
+            // history.pushState(null, null, targetId); // Optional
+        });
+    });
+
+    // Initial load
+    let initialSectionIdToShow = defaultSectionId;
     if (window.location.hash) {
         const hashId = window.location.hash;
-        // Validate if the hash corresponds to a known section to prevent errors
         let validHash = false;
         contentSections.forEach(section => {
             if ('#' + section.id === hashId) {
@@ -48,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         if (validHash) {
-            defaultSectionId = hashId.substring(1); // Use ID from hash
+            initialSectionIdToShow = hashId.substring(1);
         }
     }
-    showSection(defaultSectionId); // Show default or hash-specified section
+    showSection(initialSectionIdToShow);
 });
