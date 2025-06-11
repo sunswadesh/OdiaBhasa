@@ -222,7 +222,7 @@ footer {
 .content-section {
     display: none;
     padding-top: 10px;
-    padding-bottom: 60px; /* Add padding to bottom to avoid overlap with fixed footer */
+    padding-bottom: 60px;
 }
 
 /* Style for the currently active navigation tab link */
@@ -232,21 +232,6 @@ nav ul li a.active-tab {
     border-radius: 3px;
     padding: 5px 10px; /* Add some padding to make background visible */
 }
-
-/* DUPLICATE Tab Navigation Styling - from previous append, should be ideally removed if not for specific instruction */
-.content-section { /* This is a duplicate rule block */
-    display: none;
-    padding-top: 10px;
-    padding-bottom: 60px;
-}
-nav ul li a.active-tab { /* This is a duplicate rule block */
-    font-weight: bold;
-    background-color: #555;
-    border-radius: 3px;
-    padding: 5px 10px;
-}
-/* End DUPLICATE */
-
 
 /* Styling for the Topics List (list of chapters) */
 #topics .topic-list {
