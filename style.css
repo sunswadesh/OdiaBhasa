@@ -48,6 +48,7 @@ footer {
 }
 
 /* Greetings Section Styling */
+/* This ID is no longer used for a section, will be removed later if confirmed */
 #greetings {
     margin-top: 20px;
     padding: 15px;
@@ -96,16 +97,18 @@ footer {
     background-color: #f9f9f9; /* Light background for the section */
 }
 
-#alphabet-content h2 {
-    color: #333;
+#alphabet-content h2 { /* This is the main "Odia Alphabet (ବର୍ଣ୍ଣମାଳା)" title */
+    color: #333; /* Existing style, might be overridden by .content-section h2 */
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* Existing style */
 }
 
+/* Updated rule for tables within #alphabet-content */
 #alphabet-content table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+    margin-top: 10px; /* Space above the table (from h4 or h3) */
+    margin-bottom: 30px; /* Increased space after each table */
 }
 
 #alphabet-content th, #alphabet-content td {
@@ -143,6 +146,7 @@ footer {
     background-color: #f9f9f9; /* Light background for the section */
 }
 
+/* Note: .content-section h2 will likely override #grammar-content h2 if it's more specific or later in cascade */
 #grammar-content h2 { /* Main section title */
     color: #333;
     text-align: center;
@@ -153,6 +157,7 @@ footer {
     margin-bottom: 20px;
 }
 
+/* Note: .content-section h3 will likely override #grammar-content h3 */
 #grammar-content h3 { /* Sub-topic title, e.g., "Basic Sentence Structure" */
     color: #444;
     margin-bottom: 10px;
@@ -196,28 +201,26 @@ footer {
     color: #555;
 }
 
-/* Styling for images within the greetings table */
+/* Styling for images within the greetings table (now #basic-greetings table) */
+/* This #greetings selector might be unused now, confirm and remove if so */
 #greetings table td img {
-    max-width: 64px; /* Corresponds to placeholder width */
-    max-height: 64px; /* Corresponds to placeholder height */
-    display: block; /* Helps with centering if margin auto is used */
-    margin: auto; /* Basic centering for block elements */
-    border: 1px solid #eee; /* Light border around the image placeholder */
-    border-radius: 4px; /* Slightly rounded corners */
+    max-width: 64px;
+    max-height: 64px;
+    display: block;
+    margin: auto;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+#greetings table td:last-child {
+    text-align: center;
+    vertical-align: middle;
 }
 
-/* Adjust padding for the image cell if needed */
-#greetings table td:last-child { /* Assuming image is the last cell */
-    text-align: center; /* Center the image if it's smaller than cell */
-    vertical-align: middle; /* Vertically align image in cell */
-}
 
 /* Tab Navigation Styling */
-
 /* Hide content sections by default */
 .content-section {
     display: none;
-    /* Add some padding or margin if sections feel too close to nav or footer when displayed */
     padding-top: 10px;
     padding-bottom: 60px; /* Add padding to bottom to avoid overlap with fixed footer */
 }
@@ -225,69 +228,41 @@ footer {
 /* Style for the currently active navigation tab link */
 nav ul li a.active-tab {
     font-weight: bold;
-    /* Example: change background or add an underline */
     background-color: #555; /* Darker background for active tab */
     border-radius: 3px;
     padding: 5px 10px; /* Add some padding to make background visible */
 }
 
-/* Ensure the main content area allows for scrolling if content is long,
-   and doesn't get hidden by the fixed footer.
-   The padding-bottom on .content-section helps with this.
-   We might also need to ensure 'main' itself doesn't have issues.
-   Let's add a general padding to main to prevent content from
-   being too close to the nav bar initially.
-*/
-
-/* Adjust footer if it's overlapping content,
-   though the padding-bottom on .content-section is the primary fix here.
-   The existing footer style is:
-    footer {
-        text-align: center;
-        padding: 10px;
-        background-color: #333;
-        color: #fff;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
-   This fixed position is why .content-section needs padding-bottom.
-*/
-
-/* Tab Navigation Styling */
-
-/* Hide content sections by default */
-.content-section {
+/* DUPLICATE Tab Navigation Styling - from previous append, should be ideally removed if not for specific instruction */
+.content-section { /* This is a duplicate rule block */
     display: none;
-    /* Add some padding or margin if sections feel too close to nav or footer when displayed */
     padding-top: 10px;
-    padding-bottom: 60px; /* Add padding to bottom to avoid overlap with fixed footer */
+    padding-bottom: 60px;
 }
-
-/* Style for the currently active navigation tab link */
-nav ul li a.active-tab {
+nav ul li a.active-tab { /* This is a duplicate rule block */
     font-weight: bold;
-    /* Example: change background or add an underline */
-    background-color: #555; /* Darker background for active tab */
+    background-color: #555;
     border-radius: 3px;
-    padding: 5px 10px; /* Add some padding to make background visible */
+    padding: 5px 10px;
 }
+/* End DUPLICATE */
+
 
 /* Styling for the Topics List (list of chapters) */
 #topics .topic-list {
-    list-style-type: none; /* Remove default bullets */
+    list-style-type: none;
     padding: 0;
     margin-top: 15px;
 }
 
 #topics .topic-list li {
-    margin-bottom: 10px; /* Space between chapter links */
+    margin-bottom: 10px;
 }
 
 #topics .topic-list .chapter-link {
-    display: block; /* Make the whole area clickable */
+    display: block;
     padding: 15px;
-    background-color: #e9e9e9; /* Light background for links */
+    background-color: #e9e9e9;
     color: #333;
     text-decoration: none;
     border-radius: 5px;
@@ -296,20 +271,20 @@ nav ul li a.active-tab {
 }
 
 #topics .topic-list .chapter-link:hover {
-    background-color: #dcdcdc; /* Slightly darker on hover */
+    background-color: #dcdcdc;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Styling for Chapter Content Sections (e.g., #basic-greetings, #basic-introductions) */
-/* Titles within chapters */
-.content-section h2 { /* This will apply to chapter titles like "Chapter: Basic Greetings" */
-    color: #2c3e50; /* A different color for chapter titles for distinction */
-    border-bottom: 2px solid #3498db; /* A blue bottom border */
+/* Styling for Chapter Content Sections */
+/* This .content-section h2 might override specific h2s like #alphabet-content h2 if not careful with specificity or order */
+.content-section h2 {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
     padding-bottom: 10px;
-    margin-top: 0; /* Remove default margin if section already has padding */
+    margin-top: 0;
 }
 
-.content-section h3 { /* Sub-headings like "Vocabulary / Key Phrases:" */
+.content-section h3 {
     color: #34495e;
     margin-top: 25px;
     margin-bottom: 10px;
@@ -328,21 +303,21 @@ nav ul li a.active-tab {
 #basic-greetings th, #basic-greetings td,
 #basic-introductions th, #basic-introductions td {
     border: 1px solid #ccc;
-    padding: 12px; /* Slightly more padding */
+    padding: 12px;
     text-align: left;
-    vertical-align: top; /* Align content to top of cell */
+    vertical-align: top;
 }
 
 #basic-greetings th,
 #basic-introductions th {
-    background-color: #f0f0f0; /* Lighter grey for these chapter table headers */
+    background-color: #f0f0f0;
     color: #333;
     font-weight: bold;
 }
 
 #basic-greetings tr:nth-child(even),
 #basic-introductions tr:nth-child(even) {
-    background-color: #f9f9f9; /* Lighter zebra striping */
+    background-color: #f9f9f9;
 }
 
 #basic-greetings td img,
@@ -355,14 +330,14 @@ nav ul li a.active-tab {
     border-radius: 4px;
 }
 
-#basic-greetings table td:last-child, /* Image cell in greetings */
-#basic-introductions table td:last-child { /* Image cell in new vocab table */
+#basic-greetings table td:last-child,
+#basic-introductions table td:last-child {
     text-align: center;
     vertical-align: middle;
 }
 
 /* Conversation snippet styling */
-#basic-introductions h3 ~ p { /* Targets any <p> that is a sibling following an <h3> (our "Sample Conversations" heading) */
+#basic-introductions h3 ~ p {
     margin-bottom: 8px;
     padding: 8px;
     border-left: 3px solid #3498db;
@@ -370,7 +345,27 @@ nav ul li a.active-tab {
     line-height: 1.5;
 }
 
-#basic-introductions h3 ~ p strong { /* Speaker label */
+#basic-introductions h3 ~ p strong {
     color: #2980b9;
     margin-right: 5px;
+}
+
+/* Enhancements for Alphabet Section Styling (New rules to be appended) */
+/* Styling for H3 (e.g., "Vowels", "Consonants") within #alphabet-content */
+#alphabet-content h3 {
+    font-size: 1.4em;
+    color: #3a539b; /* A deep blue color */
+    margin-top: 30px; /* Space above the H3 */
+    margin-bottom: 15px;
+    border-bottom: 1px solid #c5cae9; /* Light blue bottom border */
+    padding-bottom: 8px;
+}
+
+/* Styling for H4 (category titles like "Velar") within #alphabet-content */
+#alphabet-content h4 {
+    font-size: 1.2em;
+    color: #546e7a; /* A slate gray color */
+    margin-top: 25px; /* Space above each category title */
+    margin-bottom: 5px; /* Less space between category title and its table */
+    font-weight: bold;
 }
